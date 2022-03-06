@@ -1,9 +1,15 @@
-import type { Component } from 'solid-js';
+import { Component, createEffect } from 'solid-js';
 
 import logo from './logo.svg';
 import styles from './App.module.css';
+import { fetchUsers } from './fetchUsers';
 
 const App: Component = () => {
+  createEffect(async() => {
+    const users = await fetchUsers(5);
+    console.log(users);
+  });
+
   return (
     <div class={styles.App}>
       <header class={styles.header}>
