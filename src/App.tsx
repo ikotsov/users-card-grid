@@ -1,17 +1,19 @@
-import { Component, createEffect } from 'solid-js';
-
-import logo from './logo.svg';
-import styles from './App.module.css';
-import { fetchUsers } from './fetchUsers';
+import { Component, createResource } from "solid-js";
+import styles from "./App.module.css";
+import { fetchUsers } from "./fetchUsers";
+import logo from "./logo.svg";
+import { Name } from "./User/Name";
 
 const App: Component = () => {
-  createEffect(async() => {
-    const users = await fetchUsers(5);
-    console.log(users);
-  });
+  const [users] = createResource(5, fetchUsers);
 
   return (
     <div class={styles.App}>
+      <span>{users.loading && "Loading..."}</span>
+      <div>
+        <pre>{JSON.stringify(users(), null, 2)}</pre>
+      </div>
+      <Name>John</Name>
       <header class={styles.header}>
         <img src={logo} class={styles.logo} alt="logo" />
         <p>
