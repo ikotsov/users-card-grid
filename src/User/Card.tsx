@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 type Props = {
   children: JSX.Element;
 };
-export function Name(props: Props) {
+export function Card(props: Props) {
   const c = children(() => props.children);
-  return <div class={styles.user__name}>{c()}</div>;
+  return <div class={styles.user}>{c()}</div>;
 }
