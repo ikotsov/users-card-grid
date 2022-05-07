@@ -4,7 +4,7 @@ import { fetchUsers } from "./fetchUsers";
 import { Card } from "./User/Card";
 import { Name } from "./User/Name";
 
-export type User = {
+type User = {
   gender: string;
   name: { first: string; last: string };
 };
