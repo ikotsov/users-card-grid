@@ -1,6 +1,6 @@
 import { Component, createResource, For } from "solid-js";
-import { fetchUsers } from "./api/fetchUsers";
-import { User } from "./api/User";
+import { fetchUsers } from "./network/fetchUsers";
+import { User } from "./network/User";
 import styles from "./App.module.css";
 import { Card } from "./User/Card";
 import { Name } from "./User/Name";
